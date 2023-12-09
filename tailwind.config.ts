@@ -1,20 +1,49 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
+// import plugin from 'tailwindcss/plugin';
+
+const px0_10 = {
+  ...[...Array(11)].map((_, i) => `${i}px`),
+} as unknown as Record<string, string>;
+const px0_100 = {
+  ...[...Array(101)].map((_, i) => `${i}px`),
+} as unknown as Record<string, string>;
+const px0_600 = {
+  ...[...Array(601)].map((_, i) => `${i}px`),
+} as unknown as Record<string, string>;
 
 const config: Config = {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      fontFamily: {
+        sans: ['Pretendard', 'sans-serif'], // 폰트 설정
       },
+      borderWidth: px0_10,
+      borderRadius: px0_100,
+      fontSize: px0_100,
+      lineHeight: { ...px0_100, normal: 'normal' },
+      minWidth: px0_600,
+      maxWidth: px0_600,
+      minHeight: px0_600,
+      maxHeight: px0_600,
+      spacing: px0_600,
+      letterSpacing: { normal: 'normal' },
+
+      colors: {},
     },
   },
-  plugins: [],
-}
-export default config
+  corePlugins: {
+    textOpacity: false,
+    backgroundOpacity: false,
+    borderOpacity: false,
+    divideOpacity: false,
+    placeholderOpacity: false,
+    ringOpacity: false,
+  },
+  plugins: [
+    // plugin(({addVariant, addUtilities }) => {
+    //   addUtilities({});
+    // }),
+  ],
+};
+export default config;
