@@ -5,8 +5,12 @@
 1. eslint, prettier 설치 및 설정
 
 ```
-pnpm add --save-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint typescript
-pnpm add --save-dev prettier
+pnpm add --save-dev \
+      @typescript-eslint/parser \
+      @typescript-eslint/eslint-plugin \
+      eslint \
+      typescript \
+      prettier
 ```
 
 => .eslintrc.json, .prettierrc, .prettierignore 복사 및 붙여넣기
@@ -18,6 +22,8 @@ pnpm add @svgr/webpack --save-dev
 ```
 
 => next.config.js 복사 밑 붙여넣기
+
+3. fonts 설정
 
 ---
 
